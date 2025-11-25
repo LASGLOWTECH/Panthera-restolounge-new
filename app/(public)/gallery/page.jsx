@@ -7,7 +7,7 @@ import Image from "next/image";
 import img1 from "@/public/assets/food1.jpg";
 import img2 from "@/public/assets/hero.jpg";
 import img3 from "@/public/assets/hero1.jpg";
-import img4 from "@/public/assets/hero5.jpg";
+import img4 from "@/public/assets/interior14.jpg";
 import img5 from "@/public/assets/interior1.jpg";
 import img6 from "@/public/assets/interior2.jpg";
 import img7 from "@/public/assets/interior3.jpg";

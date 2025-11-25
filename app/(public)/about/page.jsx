@@ -400,16 +400,11 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-4xl font-bold mb-6 text-dark">Experience Luxury Dining</h2>
+        <h2 className="text-4xl font-bold mb-6 text-dark">Experience  Luxury Dining</h2>
         <p className="text-dark mb-8 max-w-xl mx-auto">
           Reserve your table today and immerse yourself in the elegance of Panthera Lounge.
         </p>
-        <a
-          href="/reservations"
-          className="px-8 py-4 bg-dark text-footer-accent font-semibold rounded-full hover:bg-gray-800 transition duration-300"
-        >
-          Book Now
-        </a>
+        
       </motion.section>
 
     </div>
