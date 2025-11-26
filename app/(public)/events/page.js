@@ -32,7 +32,7 @@ export default function EventsPage() {
 
   if (error)
     return (
-      <div className="text-red-500 text-center py-20 bg-gray-900">
+      <div className="text-gold text-center py-20 bg-gray-900">
         {error}
       </div>
     );
@@ -45,10 +45,10 @@ export default function EventsPage() {
     );
 
   return (
-    <div className="min-h-screen bg-gray-900 font-sans">
+    <div className="min-h-screen mt-16 bg-dark font-sans">
       {/* Page Header */}
-      <header className="py-16 text-center text-white bg-black/80 border-b border-gray-700">
-        <h1 className="text-5xl font-extrabold tracking-tight mb-2 text-red-500">
+      <header className="py-16 text-center text-white bg-black border-b border-gray-700">
+        <h1 className="text-5xl  font-semibold font-serif tracking-tight my-4 text-gold">
           Upcoming Events
         </h1>
         <p className="text-xl text-gray-300">
