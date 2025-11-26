@@ -73,6 +73,7 @@ export default function ContactPage() {
             <div>
               <p className="font-semibold text-gold">Phone</p>
               <p className="text-textcolor2">+234 8033851591</p>
+              <p className="text-textcolor2">+234 9062010234</p>
             </div>
           </div>
 

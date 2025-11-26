@@ -42,7 +42,7 @@ export default function Navbar() {
         </nav>
  
              
-                <Link href='/about' ><button className=" hidden md:flex text-gold text-lg px-6 py-3 border-gold border-2 hover:bg-linear-to-r  hover:from-bg-gold hover:to-bg-gold2 shadow-lg font-semibold rounded-full transition-all duration-300">Learn More</button></Link>
+                <Link href='/admin/login' ><button className=" hidden md:flex text-gold text-lg px-6 py-3 border-gold border-2 hover:bg-linear-to-r  hover:from-bg-gold hover:to-bg-gold2 shadow-lg font-semibold rounded-full transition-all duration-300">Admin</button></Link>
 
       </div>
 

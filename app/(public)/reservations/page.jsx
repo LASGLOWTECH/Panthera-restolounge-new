@@ -24,35 +24,42 @@ export default function ReservationsPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
+  e.preventDefault();
+  setLoading(true);
+  setError("");
 
-    try {
-      const res = await fetch("/api/reservations", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+  try {
+    const res = await fetch("/api/reservations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      if (res.ok) {
-        const { name, date, time, guests, seatingType } = form;
-        router.push(
-          `/success?name=${encodeURIComponent(
-            name
-          )}&date=${date}&time=${time}&guests=${guests}&seatingType=${seatingType}`
-        );
-      } else {
-        setError(data.error || "Submission failed");
+    if (res.ok) {
+      // If waLink exists, open it in new tab
+      if (data.waLink) {
+        window.open(data.waLink, "_blank");
       }
-    } catch (err) {
-      setError("Server error");
-    } finally {
-      setLoading(false);
+
+      // Redirect to success page
+      const { name, date, time, guests, seatingType } = form;
+      router.push(
+        `/success?name=${encodeURIComponent(
+          name
+        )}&date=${date}&time=${time}&guests=${guests}&seatingType=${seatingType}`
+      );
+    } else {
+      setError(data.error || "Submission failed");
     }
-  };
+  } catch (err) {
+    setError("Server error");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-black text-white pt-32 pb-20 px-6">

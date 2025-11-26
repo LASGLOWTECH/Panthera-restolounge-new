@@ -31,7 +31,7 @@ const Footer = () => {
             {/* Social Icons */}
             <div className="flex space-x-3">
               <a
-                href="https://www.tiktok.com/@panthera.abuja?_r=1&_t=ZP-91c5R5Tp6LO"
+                href="https://www.tiktok.com/@panthera.no1?_r=1&_t=ZP-91gu6QByuPW"
                 aria-label="TikTok"
                 className="w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-footer-accent transition duration-300 rounded-full text-white hover:text-footer-dark"
               >
@@ -91,8 +91,9 @@ const Footer = () => {
               </p>
               <p className="flex items-center  text-white/70 gap-2">
                 <HiOutlinePhone className="text-footer-accent  text-white/70 w-5 h-5" />
-             +234 8033851591
-              </p>
+             +234 8033851591 <br></br>
+
++234 9062100234              </p>
               <p className="flex items-center  text-white/70 gap-2">
                 <HiOutlineLocationMarker className="text-footer-accent  text-white/70 w-5 h-5" />
               1A Danube Street, Maitama, Abuja
