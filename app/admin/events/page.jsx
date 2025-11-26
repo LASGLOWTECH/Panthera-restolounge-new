@@ -8,7 +8,7 @@ export default function AdminEventsPage() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const router = useRouter();
+  // const router = useRouter();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -30,27 +30,27 @@ export default function AdminEventsPage() {
   }, []);
 
   // 🔥 DELETE EVENT
-  const handleDelete = async (id) => {
-    const confirmDelete = confirm("Are you sure you want to delete this event?");
-    if (!confirmDelete) return;
+  // const handleDelete = async (id) => {
+  //   const confirmDelete = confirm("Are you sure you want to delete this event?");
+  //   if (!confirmDelete) return;
 
-    try {
-      const res = await fetch(`/api/events/${id}`, {
-        method: "DELETE",
-      });
+  //   try {
+  //     const res = await fetch(`/api/events/${id}`, {
+  //       method: "DELETE",
+  //     });
 
-      if (!res.ok) {
-        alert("Failed to delete event");
-        return;
-      }
+  //     if (!res.ok) {
+  //       alert("Failed to delete event");
+  //       return;
+  //     }
 
-      // Remove deleted event without refreshing
-      setEvents((prev) => prev.filter((event) => event._id !== id));
-    } catch (err) {
-      console.error(err);
-      alert("Error deleting event");
-    }
-  };
+  //     // Remove deleted event without refreshing
+  //     setEvents((prev) => prev.filter((event) => event._id !== id));
+  //   } catch (err) {
+  //     console.error(err);
+  //     alert("Error deleting event");
+  //   }
+  // };
 
   return (
     <div className="min-h-screen bg-dark p-6 text-white">
@@ -75,7 +75,7 @@ export default function AdminEventsPage() {
                 image={event.image}
               />
 
-              {/* Admin Buttons */}
+              {/* Admin Buttons
               <div className="flex gap-3 mt-3">
                 <button
                   onClick={() => router.push(`/admin/events/edit/${event._id}`)}
@@ -90,7 +90,7 @@ export default function AdminEventsPage() {
                 >
                   Delete
                 </button>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

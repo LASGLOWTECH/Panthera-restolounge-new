@@ -62,7 +62,7 @@ export default function AdminLoginPage() {
               type="submit"
               className="w-full py-3 mt-2 bg-gold2 hover:bg-gold2 text-white font-semibold rounded-lg transition"
             >
-              LOGIN now
+              LOGIN 
             </button>
             {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
           </form>

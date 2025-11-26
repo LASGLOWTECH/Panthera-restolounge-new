@@ -11,9 +11,7 @@ export default function AdminDashboard() {
         <Link href="/admin/events" className="bg-gray-800 p-6 rounded shadow hover:shadow-lg text-white">
           <h2 className="text-xl font-bold">Events</h2>
         </Link>
-        <Link href="/admin/gallery" className="bg-gray-800 p-6 rounded shadow hover:shadow-lg text-white">
-          <h2 className="text-xl font-bold">Gallery</h2>
-        </Link>
+       
       </div>
     </div>
   );
