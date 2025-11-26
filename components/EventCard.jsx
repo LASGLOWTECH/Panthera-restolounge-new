@@ -36,7 +36,7 @@ const EventCard = ({ title, description, date, image }) => {
 
         {/* Date */}
         <p className="text-lg font-medium text-gray-300 mb-4">
-          🗓️ {formattedDate}
+          {formattedDate}
         </p>
 
         {/* Description */}
