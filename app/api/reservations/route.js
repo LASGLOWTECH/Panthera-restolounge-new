@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import Reservation from "@/models/Reservation";
 import { sendNotificationEmail } from "@/lib/mail";
-import { sendWhatsAppCloud, generateReservationWaLink } from "@/lib/whatsapp";
+// import { sendWhatsAppCloud, generateReservationWaLink } from "@/lib/whatsapp";
 import { requireToken } from "@/lib/auth";
 
 export async function POST(req) {
@@ -35,20 +35,20 @@ Request: ${body.request || "None"}`;
     }
 
     // Try WhatsApp Cloud API
-    let waLink = "";
-    try {
-      await sendWhatsAppCloud({
-        phoneId: process.env.WHATSAPP_PHONE_ID,
-        token: process.env.WHATSAPP_TOKEN,
-        toNumber: body.phone,
-        message: msg,
-      });
-    } catch (e) {
-      console.error("WhatsApp API failed:", e.message);
-      // Generate wa.me fallback link
-      waLink = generateReservationWaLink(reservationData, process.env.CLIENT_WHATSAPP_NUMBER);
-      console.log("Fallback WhatsApp link:", waLink);
-    }
+    // let waLink = "";
+    // try {
+    //   await sendWhatsAppCloud({
+    //     phoneId: process.env.WHATSAPP_PHONE_ID,
+    //     token: process.env.WHATSAPP_TOKEN,
+    //     toNumber: body.phone,
+    //     message: msg,
+    //   });
+    // } catch (e) {
+    //   console.error("WhatsApp API failed:", e.message);
+    //   // Generate wa.me fallback link
+    //   waLink = generateReservationWaLink(reservationData, process.env.CLIENT_WHATSAPP_NUMBER);
+    //   console.log("Fallback WhatsApp link:", waLink);
+    // }
 
     return NextResponse.json({ success: true, reservation: created, waLink });
   } catch (err) {
