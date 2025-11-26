@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import Reservation from "@/models/Reservation";
-import { sendNotificationEmail } from "@/lib/mail";
+import { sendReservationNotification } from "@/lib/mail"; // use wrapper
 // import { sendWhatsAppCloud, generateReservationWaLink } from "@/lib/whatsapp";
 import { requireToken } from "@/lib/auth";
 
@@ -18,41 +18,33 @@ export async function POST(req) {
 
     const created = await Reservation.create(reservationData);
 
-    const msg = `NEW RESERVATION
-Name: ${body.name}
-Phone: ${body.phone}
-Guests: ${body.guests}
-Date: ${body.date}
-Time: ${body.time}
-Seating: ${reservationData.seating}
-Request: ${body.request || "None"}`;
-
-    // Send email
+    // Send email notification using wrapper
     try {
-      await sendNotificationEmail(process.env.NOTIFY_EMAIL, "New Reservation", msg);
+      await sendReservationNotification(reservationData);
     } catch (e) {
-      console.error("Email failed:", e);
+      console.error("Email failed:", e.message || e);
     }
 
-    // Try WhatsApp Cloud API
-    // let waLink = "";
-    // try {
-    //   await sendWhatsAppCloud({
-    //     phoneId: process.env.WHATSAPP_PHONE_ID,
-    //     token: process.env.WHATSAPP_TOKEN,
-    //     toNumber: body.phone,
-    //     message: msg,
-    //   });
-    // } catch (e) {
-    //   console.error("WhatsApp API failed:", e.message);
-    //   // Generate wa.me fallback link
-    //   waLink = generateReservationWaLink(reservationData, process.env.CLIENT_WHATSAPP_NUMBER);
-    //   console.log("Fallback WhatsApp link:", waLink);
-    // }
+    // WhatsApp is still commented out
+    /*
+    let waLink = "";
+    try {
+      await sendWhatsAppCloud({
+        phoneId: process.env.WHATSAPP_PHONE_ID,
+        token: process.env.WHATSAPP_TOKEN,
+        toNumber: body.phone,
+        message: msg,
+      });
+    } catch (e) {
+      console.error("WhatsApp API failed:", e.message);
+      waLink = generateReservationWaLink(reservationData, process.env.CLIENT_WHATSAPP_NUMBER);
+      console.log("Fallback WhatsApp link:", waLink);
+    }
+    */
 
-    return NextResponse.json({ success: true, reservation: created, waLink });
+    return NextResponse.json({ success: true, reservation: created });
   } catch (err) {
-    console.error(err);
+    console.error("Reservation API error:", err);
     return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }

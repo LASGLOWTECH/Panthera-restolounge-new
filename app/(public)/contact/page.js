@@ -1,16 +1,11 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-
-import {
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaEnvelope,
-} from "react-icons/fa";
-
-import sideImage from "@/public/assets/interior17.jpg"; // change if needed
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import sideImage from "@/public/assets/interior17.jpg";
 
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
@@ -19,6 +14,10 @@ export default function ContactPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);        // ✅ start loading
+    setSuccess("");
+    setError("");
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -28,26 +27,23 @@ export default function ContactPage() {
 
       if (res.ok) {
         setSuccess("Message sent successfully!");
-        setError("");
         setForm({ name: "", email: "", phone: "", message: "" });
       } else {
         const data = await res.json();
         setError(data.error || "Failed to send message");
-        setSuccess("");
       }
     } catch (err) {
       setError("Server error");
-      setSuccess("");
+    } finally {
+      setLoading(false);    // ✅ stop loading
     }
   };
 
   return (
     <div className="min-h-screen flex bg-black text-white">
-      
       {/* LEFT SIDE */}
       <div className="w-full md:w-1/2 flex flex-col justify-center mt-16 px-8 md:px-16 py-24 bg-black">
-        
-        <h1 className="text-4xl font-bold mb-4  text-gold">Get In Touch</h1>
+        <h1 className="text-4xl font-bold mb-4 text-gold">Get In Touch</h1>
         <p className="text-textcolor2 mb-8 max-w-md">
           We’d love to hear from you! For bookings, reservations, feedback, 
           or support — reach out to us anytime.
@@ -55,7 +51,6 @@ export default function ContactPage() {
 
         {/* Contact Icons */}
         <div className="grid grid-cols-1 gap-6 mb-12">
-          
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-md bg-dark shadow-md shadow-amber-300">
               <FaEnvelope className="text-gold2 text-xl" />
@@ -65,7 +60,6 @@ export default function ContactPage() {
               <p className="text-textcolor2">Pantherarestolounge@gmail.com</p>
             </div>
           </div>
-
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-md bg-dark shadow-md shadow-amber-300">
               <FaPhoneAlt className="text-gold2 text-xl" />
@@ -76,7 +70,6 @@ export default function ContactPage() {
               <p className="text-textcolor2">+234 9062010234</p>
             </div>
           </div>
-
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-md bg-dark shadow-md shadow-amber-300">
               <FaMapMarkerAlt className="text-gold2 text-xl" />
@@ -86,7 +79,6 @@ export default function ContactPage() {
               <p className="text-textcolor2">1A Danube Street, Maitama, Abuja</p>
             </div>
           </div>
-
         </div>
 
         {/* FORM */}
@@ -100,7 +92,6 @@ export default function ContactPage() {
             className="p-3 rounded bg-black/40 border border-neutral-700 focus:ring-2 focus:ring-gold2"
             required
           />
-
           <input
             type="email"
             name="email"
@@ -110,7 +101,6 @@ export default function ContactPage() {
             className="p-3 rounded bg-black/40 border border-neutral-700 focus:ring-2 focus:ring-gold2"
             required
           />
-
           <input
             type="tel"
             name="phone"
@@ -119,7 +109,6 @@ export default function ContactPage() {
             onChange={handleChange}
             className="p-3 rounded bg-black/40 border border-neutral-700 focus:ring-2 focus:ring-gold2"
           />
-
           <textarea
             name="message"
             placeholder="Your Message"
@@ -130,14 +119,19 @@ export default function ContactPage() {
             required
           />
 
-          <button className="bg-gold2 hover:bg-gold text-black p-3 rounded font-bold transition">
-            Send Message
+          <button
+            type="submit"
+            disabled={loading}
+            className={`p-3 rounded font-bold transition ${
+              loading ? "bg-gray-700 text-gray-400 cursor-not-allowed" : "bg-gold2 hover:bg-gold text-black"
+            }`}
+          >
+            {loading ? "Sending..." : "Send Message"}
           </button>
 
           {success && <p className="text-green-400">{success}</p>}
           {error && <p className="text-red-500">{error}</p>}
         </form>
-
       </div>
 
       {/* RIGHT SIDE IMAGE */}
@@ -150,7 +144,6 @@ export default function ContactPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-l from-black/40 to-transparent"></div>
       </div>
-
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function Navbar() {
     { link: "Menu", to: "/menu" },
     { link: "Gallery", to: "/gallery" },
     { link: "Events", to: "/events" },
-    { link: "Reserve", to: "/reservations" },
+    { link: "Reservations", to: "/reservations" },
         { link: "Contact", to: "/contact" },
    
   ];

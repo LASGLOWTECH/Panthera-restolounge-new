@@ -1,31 +1,37 @@
-// app/api/contact/route.js
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import Contact from "@/models/Contact";
-import { sendNotificationEmail } from "@/lib/mail";
+import { sendContactNotification } from "@/lib/mail";
 
 export async function POST(req) {
-  await connectDB();
   try {
-    const body = await req.json();
-    const created = await Contact.create(body);
+    await connectDB();
 
-    try {
-      await sendNotificationEmail({
-        to: process.env.NOTIFY_EMAIL,
-        subject: "New Contact Message - Panthera",
-        html: `<p><strong>${body.name}</strong> sent a message</p>
-               <p>Email: ${body.email}</p>
-               <p>Phone: ${body.phone || "N/A"}</p>
-               <p>Message:<br/>${body.message}</p>`,
-      });
-    } catch (e) {
-      console.error("Email failed:", e.message || e);
+    const { name, email, phone, message } = await req.json();
+
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: "Name, email, and message are required." },
+        { status: 400 }
+      );
     }
 
-    return NextResponse.json({ success: true, contact: created });
+    const created = await Contact.create({ name, email, phone, message });
+
+    // Send notification email (non-blocking)
+    sendContactNotification({ name, email, phone, message })
+      .catch(err => console.error("Email failed:", err));
+
+    return NextResponse.json({
+      success: true,
+      message: "Message sent successfully",
+      contact: created,
+    });
   } catch (err) {
-    console.error(err);
-    return NextResponse.json({ error: "Failed" }, { status: 500 });
+    console.error("Contact form error:", err);
+    return NextResponse.json(
+      { error: "Failed to submit message. Try again later." },
+      { status: 500 }
+    );
   }
 }

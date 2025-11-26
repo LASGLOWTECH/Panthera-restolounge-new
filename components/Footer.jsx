@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaFacebookF, FaInstagram, FaTiktok,FaSnapchatGhost } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTiktok, FaSnapchatGhost } from "react-icons/fa";
 
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 import Link from "next/link";
@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto border-b border-white/30 pb-12">
         {/* Top Section: Three Columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
-          
+
           {/* Column 1: Company Info & Socials */}
           <div>
             {/* Logo */}
@@ -37,9 +37,9 @@ const Footer = () => {
               >
                 <FaTiktok />
               </a>
-              
-             
-              
+
+
+
               <a
                 href="#"
                 aria-label="Facebook"
@@ -70,12 +70,13 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold uppercase text-gold mb-6">Quick Links</h3>
             <nav className="space-y-3 flex flex-col">
-    
+
               <Link href="/" className="hover:text-footer-accent text-white/70 transition duration-200">Home</Link >
+               <Link href="/about" className="hover:text-footer-accent text-white/70 transition duration-200">About Us</Link >
               <Link href="/menu" className="hover:text-footer-accent text-white/70 transition duration-200">Menu & Drinks</Link >
               <Link href="/reservations" className="hover:text-footer-accent text-white/70 transition duration-200">Reservations</Link >
               <Link href="/events" className="hover:text-footer-accent  text-white/70 transition duration-200">Private Events</Link >
-              <Link href="/reservations" className="hover:text-footer-accent text-white/70 transition duration-200">Reservation</Link >
+             
             </nav>
           </div>
 
@@ -91,12 +92,12 @@ const Footer = () => {
               </p>
               <p className="flex items-center  text-white/70 gap-2">
                 <HiOutlinePhone className="text-footer-accent  text-white/70 w-5 h-5" />
-             +234 8033851591 <br></br>
+                +234 8033851591 <br></br>
 
-+234 9062100234              </p>
+                +234 9062100234              </p>
               <p className="flex items-center  text-white/70 gap-2">
                 <HiOutlineLocationMarker className="text-footer-accent  text-white/70 w-5 h-5" />
-              1A Danube Street, Maitama, Abuja
+                1A Danube Street, Maitama, Abuja
               </p>
             </div>
           </div>
