@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import food1 from "@/public/assets/food2.jpg";
+import food1 from "@/public/assets/hero5.jpg";
 
 export default function ReservationsPage() {
   const router = useRouter();

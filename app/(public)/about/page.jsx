@@ -63,7 +63,7 @@ const AboutUs = () => {
           <h2 className="text-4xl font-semibold text-footer-accent mb-6 tracking-wide">
             Our Story
           </h2>
-          <p className="text-footer-text text-lg font-light">
+          <p className="text-footer-text text-lg  text-gray-400 font-base">
             First and foremost, Panthera embraces the panther's aura of mystery. Tucked away in a
  discreet and high profile corner of the city, the restaurant invites guests to embark on  an 
 adventure, an exploration of flavors that would ignite their curiosity and leave them
@@ -71,7 +71,7 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
  entranceways and alluring shadows, beckoning guests to step into a world unlike any they
  have experienced before
           </p>
-          <p className="text-footer-text text-base leading-relaxed">
+          <p className="text-footer-text text-gray-400 text-base leading-relaxed">
            Beyond the dining experience, Panthera embraces its responsibility to the environment.
  Inspired by the panther's conservation efforts, the restaurant implements sustainable
  practices, sourcing ingredients ethically and supporting local producers. By partnering
@@ -79,7 +79,7 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
  wildlife habitats, acting as a steward for the panther and its counterparts in the natural
  world
           </p>
-          <p className="text-footer-text text-base leading-relaxed">
+          <p className="text-footer-text  text-gray-400 text-base leading-relaxed">
             As the doors swing open, guests are welcomed into an atmosphere of sleek sophistication,
  mirroring the panther's unparalleled elegance. The interior design boasts of a harmonious
  blend of modern aesthetics and timeless charm, where plush furnishings intertwined with
@@ -126,10 +126,10 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
 
   <div className="grid md:grid-cols-2 gap-12">
     {/* Vision */}
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col md:items-left items-center">
       <FaEye className="text-footer-accent text-5xl mb-4" />
-      <h3 className="text-2xl font-normal mb-4">Our Vision</h3>
-      <p className="text-gray-300">
+      <h3 className="text-2xl  font-bold  mb-4">Our Vision</h3>
+      <p className="text-gray-400 text-justify">
         Our vision at Panthera is to redefine the boundaries of fine dining by crafting a captivating
  and immersive culinary experience that celebrates the allure and spirit of panthers. We
  aim to be a trailblazer in the industry, inspiring guests with our commitment to elegance,
@@ -152,10 +152,10 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
     </div>
 
     {/* Mission */}
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col md:items-left items-center">
       <FaBullseye className="text-footer-accent text-5xl mb-4" />
-      <h3 className="text-2xl font-normal mb-4">Our Mission</h3>
-      <p className="text-gray-300">
+      <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+      <p className="text-gray-400  text-justify font-normal">
        Our mission at Panthera is to provide an exceptional fine dining experience that celebrates
  the captivating qualities of panthers, offering a harmonious blend of elegance, innovation,
  and sustainability. We are dedicated to delighting our guests with meticulously crafted
@@ -173,7 +173,7 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
 
 
 
-       <p className="text-footer-text  font-normal text-base leading-relaxed">
+       <p className="text-footer-text text-gray-400  text-justify font-normal text-base leading-relaxed">
     Sustainability is a cornerstone of our mission. We are dedicated to sourcing locally and
  responsibly, reducing waste, and implementing eco-conscious practices throughout our
  operations. By prioritizing sustainability, we aim to make a positive impact on the
@@ -219,7 +219,7 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
 
     {/* Text (full width with delayed fade) */}
     <motion.div
-      className="w-full text-center md:text-left space-y-6"
+      className="w-full text-center md:text-left "
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -228,7 +228,7 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
         
       EXECUTIVE SUMMARY
       </h3>
-      <p className="text-gray-300 text-base md:text-lg leading-relaxed ">
+      <p className="text-gray-400  text-justify font-normal text-base md:text-lg leading-relaxed ">
       Panthera is a fine dining restaurant that draws inspiration from the captivating
  qualities of panthers, creating a unique brand story that celebrates elegance,
  fierceness, and sustainability. With meticulous attention to detail, Panthera offers
@@ -245,7 +245,7 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
 
  <div className=" ">
 
-<p className="text-gray-300 text-base md:text-lg leading-relaxed ">
+<p className="text-gray-400  font-normal text-base md:text-lg leading-relaxed ">
       Sustainability lies at the heart of Panthera, intertwining with every endeavor to create a fine dining experience that not only delights the senses but also respects and preserves the natural world. Panthera's commitment to sustainability starts with its sourcing practices. The restaurant places a strong emphasis on locally and responsibly sourced ingredients, forging close relationships with farmers, fishermen, and artisans who share their values. By prioritizing local and seasonal produce, Panthera reduces its carbon footprint and supports the local community while ensuring the freshest and highest quality ingredients grace their dishes
       </p>
         
@@ -280,7 +280,7 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
 {pantheraSections.map((section, idx) => (
   <motion.section
     key={section.title}
-    className="py-20 px-6 md:px-16 max-w-5xl mx-auto flex flex-col items-center gap-8"
+    className="pb-10 px-6 md:px-16 max-w-5xl mx-auto flex flex-col items-center gap-8"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true, amount: 0.3 }}
@@ -312,7 +312,7 @@ adventure, an exploration of flavors that would ignite their curiosity and leave
         {section.icon && <section.icon className="text-footer-accent text-5xl" />}
         {section.title}
       </h3>
-      <p className="text-gray-300 text-base md:text-lg leading-relaxed ">
+      <p className="text-gray-400  text-justify font-normal text-base md:text-lg leading-relaxed ">
         {section.text}
       </p>
     </motion.div>
