@@ -37,6 +37,8 @@ This app features a public-facing website showcasing the restaurant's **menu, ga
 
 ```
 
+
+
 panthera-restolounge/
 ├── app/                  # Next.js app directory
 │   ├── (public)/         # Public-facing pages
