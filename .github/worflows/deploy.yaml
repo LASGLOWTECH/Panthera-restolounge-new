@@ -26,15 +26,21 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # NOTE: We include all server-side secrets here to prevent the 
-      # "Failed to collect page data" error during the build phase.
-      - name: Build Next.js Application (Exposing Secrets)
+     # NOTE: This step ensures your application builds successfully, 
+      # using any necessary build-time secrets.
+      - name: Build Next.js Application
         run: npm run build
         env:
-          # Use MONGO_URI consistently for the database connection
+          # ADDED MONGO_URI HERE to resolve the build error!
           MONGO_URI: ${{ secrets.MONGO_URI }}
-          ADMIN_CREATION_SECRET: ${{ secrets.ADMIN_CREATION_SECRET }}
+          
+          # Include other build-time environment variables here (if needed)
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }} 
+          # You should also add any other secrets used by logic running at build time,
+          # like JWT_SECRET or ADMIN_CREATION_SECRET, to be safe.
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          ADMIN_CREATION_SECRET: ${{ secrets.ADMIN_CREATION_SECRET }}
           
           # If your app code actually references DATABASE_URL, you may need 
           # to duplicate the MONGO_URI value here, but it's better to 
