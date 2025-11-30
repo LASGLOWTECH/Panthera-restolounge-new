@@ -80,7 +80,7 @@ export default function ReservationsPage() {
               placeholder="Full Name"
               value={form.name}
               onChange={handleChange}
-              className="p-3 rounded bg-neutral-900 border border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
+              className="p-3 rounded bg-dark border text-gold  border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
               required
             />
             <input
@@ -89,7 +89,7 @@ export default function ReservationsPage() {
               placeholder="Phone Number"
               value={form.phone}
               onChange={handleChange}
-              className="p-3 rounded bg-neutral-900 border border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
+              className="p-3 rounded bg-dark border  text-gold border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
               required
             />
             <input
@@ -98,7 +98,7 @@ export default function ReservationsPage() {
               placeholder="Number of Guests"
               value={form.guests}
               onChange={handleChange}
-              className="p-3 rounded bg-neutral-900 border border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
+              className="p-3 rounded bg-dark border text-gold border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
               required
             />
 
@@ -109,7 +109,7 @@ export default function ReservationsPage() {
                 name="date"
                 value={form.date}
                 onChange={handleChange}
-                className="p-3 rounded bg-neutral-900 border border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
+                className="p-3 rounded bg-dark border text-gold  border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
                 required
               />
               <input
@@ -117,16 +117,16 @@ export default function ReservationsPage() {
                 name="time"
                 value={form.time}
                 onChange={handleChange}
-                className="p-3 rounded bg-neutral-900 border border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
+                className="p-3 rounded bg-dark border text-gold border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
                 required
               />
             </div>
 
             {/* SEATING PREFERENCE */}
             <div className="bg-neutral-900 border border-neutral-700 p-4 rounded">
-              <p className="text-sm text-gray-300 mb-3">Seating Preference</p>
+              <p className="text-sm text-gold mb-3">Seating Preference</p>
               <div className="flex items-center gap-6">
-                <label className="flex items-center gap-2 cursor-pointer">
+                <label className="flex text-gold items-center gap-2 cursor-pointer">
                   <input
                     type="radio"
                     name="seatingType"
@@ -144,7 +144,7 @@ export default function ReservationsPage() {
                     value="Outdoor"
                     checked={form.seatingType === "Outdoor"}
                     onChange={handleChange}
-                    className="accent-gold"
+                    className="bg-dark  text-gold "
                   />
                   Outdoor
                 </label>
@@ -156,7 +156,7 @@ export default function ReservationsPage() {
               placeholder="Special Requests (Optional)"
               value={form.request}
               onChange={handleChange}
-              className="p-3 rounded bg-neutral-900 h-28 border border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
+              className="p-3 rounded bg-dark text-gold h-28 border border-neutral-700 focus:ring-2 focus:ring-gold focus:outline-none"
             />
 
             <button

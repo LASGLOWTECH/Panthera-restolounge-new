@@ -30,7 +30,7 @@ const EventCard = ({ title, description, date, image }) => {
       <div className="p-6 text-white">
         
         {/* Title */}
-        <h3 className="font-display text-2xl font-bold mb-2 text-red-500 tracking-wider">
+        <h3 className="font-display text-2xl font-bold mb-2 text-gold tracking-wider">
           {title}
         </h3>
 
