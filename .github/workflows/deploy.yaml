@@ -52,7 +52,7 @@ jobs:
           target: "/var/www/pantherarestlounge.com/"
 
       # --- Process Management Stage: Create .env & Restart PM2 ---
-      - name: Create .env File and Restart PM2 Process
+      - name: Create .env File, Install Node Modules and Restart PM2 Process
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -62,7 +62,7 @@ jobs:
           script: |
             cd /var/www/pantherarestlounge.com
             
-            ## 1. Create the secure .env file on the server using secrets
+            ## 1. Create the ENV file
             echo "MONGO_URI=${{ secrets.MONGO_URI }}" > .env
             echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
             echo "MAIL_USER=${{ secrets.MAIL_USER }}" >> .env
@@ -75,7 +75,10 @@ jobs:
             echo "WHATSAPP_TOKEN=${{ secrets.WHATSAPP_TOKEN }}" >> .env
             echo "CLIENT_WHATSAPP_NUMBER=${{ secrets.CLIENT_WHATSAPP_NUMBER }}" >> .env
             
-            # 2. Start/Reload PM2
+            # 2. Install Node modules Start/Reload PM2
+            npm install --production
+
+            # 3 . Restart PM2
             if pm2 describe panthera-app > /dev/null; then
               pm2 reload panthera-app
             else
