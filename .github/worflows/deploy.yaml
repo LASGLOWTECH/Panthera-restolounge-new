@@ -1,9 +1,13 @@
+---
+# Corrected deploy.yaml
+# ---
+
 name: Deploy Next.js to VPS
 
 on:
   push:
     branches:
-      - main  # Trigger on push to the 'main' branch
+      - main 
 
 jobs:
   build-and-deploy:
@@ -16,20 +20,29 @@ jobs:
       - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Matches the Node.js version installed on your server
+          node-version: '20' 
           cache: 'npm'
 
       - name: Install Dependencies
         run: npm install
 
-      # NOTE: This step ensures your application builds successfully, 
-      # using any necessary build-time secrets.
-      - name: Build Next.js Application
+      # NOTE: We include all server-side secrets here to prevent the 
+      # "Failed to collect page data" error during the build phase.
+      - name: Build Next.js Application (Exposing Secrets)
         run: npm run build
         env:
-          # Include all build-time environment variables here
+          # Use MONGO_URI consistently for the database connection
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          ADMIN_CREATION_SECRET: ${{ secrets.ADMIN_CREATION_SECRET }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          
+          # If your app code actually references DATABASE_URL, you may need 
+          # to duplicate the MONGO_URI value here, but it's better to 
+          # update your code to only use MONGO_URI.
+          # DATABASE_URL: ${{ secrets.MONGO_URI }} 
+          
+          # Any other variables needed at build time
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }} 
 
       # --- Deployment Stage: Transfer Built Files ---
       - name: Deploy Built Files via SFTP
@@ -37,12 +50,12 @@ jobs:
         with:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
+          # NOTE: Using the SSH_KEY secret is safer than SSH_PASSWORD, 
+          # but we will stick to your current config for now.
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
           
-          # CRITICAL: DO NOT include .env here!
           SOURCE: .next/, public/, package.json, next.config.js, yarn.lock
-          
           TARGET: /var/www/pantherarestlounge.com/ 
           
       # --- Process Management Stage: Create .env & Restart PM2 ---
@@ -53,7 +66,6 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           
-          # This script securely creates the .env file and starts the app.
           script: |
             cd /var/www/pantherarestlounge.com
             
@@ -78,3 +90,16 @@ jobs:
               pm2 start npm --name "panthera-app" -- start
             fi
             pm2 save
+
+
+### ➡️ Next Action
+
+1.  **Replace the content of your `deploy.yaml`** with the updated code above.
+2.  **Commit the change** locally.
+3.  **Push the change** to the `main` branch to trigger a new deployment:
+    ```bash
+    git add .github/workflows/deploy.yaml
+    git commit -m "Fix: Expose all necessary secrets during build to resolve page data error"
+    git push origin main
+    ```
+
