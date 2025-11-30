@@ -12,9 +12,9 @@ import Image from "next/image";
 
 
 
-import food1 from "@/public/assets/food1.jpg";
-import food2 from "@/public/assets/food2.jpg";
-import food3 from "@/public/assets/food3.jpg";
+import food1 from "@/public/assets/food4.jpeg";
+import food2 from "@/public/assets/food8.jpeg";
+import food3 from "@/public/assets/food3.jpeg";
 
 /* ---------- Slideshow Images ---------- */
 
@@ -24,7 +24,7 @@ const foodImages = [
   { 
     id: 1, 
     url: food1.src, 
-    alt: "Panthera Seafood Platter — prawns, fish, and grilled delicacies beautifully arranged." 
+    alt: "Panthera Seafood Platter ,prawns, fish, and grilled delicacies beautifully arranged." 
   },
   { 
     id: 2, 
@@ -43,62 +43,62 @@ const foodImages = [
 
 
 // Function to download full menu as a text file
-import jsPDF from "jspdf";
+// import jsPDF from "jspdf";
 
 
-const formatCost = (p) => `\u20A6${Number(p.replace(/,/g, ""))?.toLocaleString()}`;
+// const formatCost = (p) => `\u20A6${Number(p.replace(/,/g, ""))?.toLocaleString()}`;
 
-const downloadMenuPDF = () => {
-  const doc = new jsPDF({ unit: "pt", format: "a4" });
-  doc.setFont("helvetica"); // make sure font supports Naira
+// const downloadMenuPDF = () => {
+//   const doc = new jsPDF({ unit: "pt", format: "a4" });
+//   doc.setFont("helvetica"); // make sure font supports Naira
 
-  let yOffset = 40;
-  const pageWidth = doc.internal.pageSize.getWidth();
-  const leftMargin = 40;
-  const rightMargin = pageWidth - 40;
+//   let yOffset = 40;
+//   const pageWidth = doc.internal.pageSize.getWidth();
+//   const leftMargin = 40;
+//   const rightMargin = pageWidth - 40;
 
-  doc.setFontSize(20);
-  doc.setTextColor(0, 0, 0);
-  doc.text("Panthera Restolounge — Full Menu", pageWidth / 2, yOffset, { align: "center" });
-  yOffset += 30;
+//   doc.setFontSize(20);
+//   doc.setTextColor(0, 0, 0);
+//   doc.text("Panthera Restolounge — Full Menu", pageWidth / 2, yOffset, { align: "center" });
+//   yOffset += 30;
 
-  menuItems.forEach((section) => {
-    doc.setFontSize(16);
-    doc.setTextColor(170, 145, 80); // gold color
-    doc.text(section.category, leftMargin, yOffset);
-    yOffset += 20;
+//   menuItems.forEach((section) => {
+//     doc.setFontSize(16);
+//     doc.setTextColor(170, 145, 80); // gold color
+//     doc.text(section.category, leftMargin, yOffset);
+//     yOffset += 20;
 
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0); // black for items
+//     doc.setFontSize(12);
+//     doc.setTextColor(0, 0, 0); // black for items
 
-    section.items.forEach((item) => {
-      const itemName = item.name;
-      const itemPrice = formatCost(item.price);
+//     section.items.forEach((item) => {
+//       const itemName = item.name;
+//       const itemPrice = formatCost(item.price);
 
-      doc.text(itemName, leftMargin + 10, yOffset);
-      doc.text(itemPrice, rightMargin - 40, yOffset, { align: "right" });
-      yOffset += 16;
+//       doc.text(itemName, leftMargin + 10, yOffset);
+//       doc.text(itemPrice, rightMargin - 40, yOffset, { align: "right" });
+//       yOffset += 16;
 
-      if (yOffset > 800) {
-        doc.addPage();
-        yOffset = 40;
-      }
-    });
+//       if (yOffset > 800) {
+//         doc.addPage();
+//         yOffset = 40;
+//       }
+//     });
 
-    yOffset += 15;
-  });
+//     yOffset += 15;
+//   });
 
-  doc.setFontSize(10);
-  doc.setTextColor(100, 100, 100);
-  doc.text(
-    "Notice: All Prices in Naira and Subject to change.",
-    pageWidth / 2,
-    yOffset + 10,
-    { align: "center" }
-  );
+//   doc.setFontSize(10);
+//   doc.setTextColor(100, 100, 100);
+//   doc.text(
+//     "Notice: All Prices in Naira and Subject to change.",
+//     pageWidth / 2,
+//     yOffset + 10,
+//     { align: "center" }
+//   );
 
-  doc.save("Panthera_Restolounge_Full_Menu.pdf");
-};
+//   doc.save("Panthera_Restolounge_Full_Menu.pdf");
+// };
 
 const menuItems = [
   {
@@ -368,6 +368,15 @@ const formatPrice = (p) =>
 
 /* ---------- Component ---------- */
 const App = () => {
+  const handleDownload2 = () => {
+    window.location.href =
+     "https://drive.google.com/uc?export=download&id=1IB1iugeh9cPPBPeV8ibECDk45gma4AV9";
+  };
+
+  const handleDownload = () => {
+    window.location.href =
+     "https://drive.google.com/uc?export=download&id=1BLASODl2UtUwcN5UvSM2z-kMkwVXJKeU";
+  };
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -529,13 +538,23 @@ const App = () => {
                 Notice: All Prices in Naira and Subject to change.
               </p>
 
-
-                      <button
-  onClick={downloadMenuPDF}
+<div className="flex md:flex-row  gap-3 flex-col items-center  ">
+                <button
+  onClick={handleDownload}
   className="bg-gold hover:bg-gold2 text-dark font-semibold uppercase py-3 px-7 rounded-md mt-6"
 >
-  Download Full Menu (PDF)
+  Download Food Menu
 </button>
+
+       <button
+  onClick={handleDownload2}
+  className="bg-gold hover:bg-gold2 text-dark font-semibold uppercase py-3 px-7 rounded-md mt-6"
+>
+  Download Drinks Menu
+</button>
+
+</div>
+      
             </motion.div>
     
           </motion.div>

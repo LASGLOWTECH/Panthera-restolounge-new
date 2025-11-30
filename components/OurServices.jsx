@@ -3,7 +3,7 @@
 import { FaUtensils, FaWineGlass, FaMusic } from "react-icons/fa";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import food1 from "@/public/assets/food1.jpg";
+import food1 from "@/public/assets/food7.jpeg";
 
 const services = [
   {

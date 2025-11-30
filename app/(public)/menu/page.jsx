@@ -6,10 +6,17 @@ import { motion, AnimatePresence } from "framer-motion";
 
 
 export default function MenuPage() {
+
+
+  
+
+  const handleDownload = () => {
+    window.location.href =
+     "https://drive.google.com/uc?export=download&id=1BLASODl2UtUwcN5UvSM2z-kMkwVXJKeU";
+  };
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [darkMode, setDarkMode] = useState(true);
-
+ 
   // Get unique categories
   const categories = ["All", ...menuItems.map((item) => item.category)];
 
@@ -34,9 +41,9 @@ export default function MenuPage() {
           <h1 className="text-4xl font-bold text-gold">Our Menu</h1>
           <button
             className="px-4 py-2 rounded bg-gold hover:bg-gold2 text-dark font-semibold shadow-lg transition"
-            onClick={() => setDarkMode(!darkMode)}
+            onClick ={handleDownload}
           >
-            {darkMode ? "Light Mode" : "Dark Mode"}
+           Download Menu
           </button>
         </div>
 

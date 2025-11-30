@@ -8,9 +8,9 @@ import Link from "next/link";
 
 // Import your images from public/assets
 import img1 from "@/public/assets/hero.jpg";
-import img2 from "@/public/assets/deserts.jpg";
+import img2 from "@/public/assets/interior6.jpg";
 import img3 from "@/public/assets/hero5.jpg";
-import img4 from "@/public/assets/food2.jpg";
+import img4 from "@/public/assets/interior13.jpg";
 import img5 from "@/public/assets/hero1.jpg";
 
 // Add all images…
