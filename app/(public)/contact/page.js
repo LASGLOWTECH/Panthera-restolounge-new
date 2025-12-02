@@ -141,6 +141,7 @@ export default function ContactPage() {
           alt="Contact Illustration"
           fill
           className="object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-l from-black/40 to-transparent"></div>
       </div>
