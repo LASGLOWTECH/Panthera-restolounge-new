@@ -6,6 +6,7 @@ import PantheraServices from "@/components/OurServices"
 import TestimonialSlider from "@/components/TestimonialCard"
 import WorksSlider from "@/components/WorkSlider"
 
+
 import { motion } from "framer-motion";
 import FoodShowcase from "@/components/FoodMenu"
 import { FAQSection } from "@/utils/Faq";
@@ -61,7 +62,7 @@ export default function HomePage() {
             </motion.p>
 
             <motion.div variants={fadeIn}>
-              <Button  className=" text-2xl px-6 py-3 bg-linear-to-r from-gold2 to-amber-400  hover:from-gold hover:to-gold2 shadow-lg text-dark font-semibold rounded-full transition-all duration-300"   href="/reservations">Book a Table</Button>
+              <Button  className=" text-2xl px-6 py-3 bg-linear-to-r from-gold2 to-amber-400  hover:from-gold hover:to-gold2 shadow-lg text-dark font-semibold rounded-full transition-all duration-300"   href="/reservations">Reserve a Table</Button>
             </motion.div>
           </motion.div>
         </div>

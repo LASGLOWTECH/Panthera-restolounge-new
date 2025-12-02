@@ -4,11 +4,9 @@ import { useEffect, useState } from "react";
 import { MoonLoader } from "react-spinners";
 import Image from "next/image"; 
 import LOGO  from "@/public/logo1.png";
-// Assuming LOGO is the static path imported from your file system, 
-// e.g., import LOGO from '../public/logo.png';
-// We'll treat LOGO as the import path/object here.
 
-const SiteLoader = () => { // 3. Pass LOGO as a prop or import it correctly
+
+const SiteLoader = () => {
     const [loading, setLoading] = useState(true);
     const [fadeOut, setFadeOut] = useState(false);
 
@@ -38,18 +36,18 @@ const SiteLoader = () => { // 3. Pass LOGO as a prop or import it correctly
     return (
         <div
             className={`fixed inset-0 bg-linear-to-r from-dark to-dark z-50 transition-opacity duration-500 flex flex-col items-center justify-center ${
-                // Use fadeOut state to control the opacity transition
-                fadeOut ? "opacity-50" : "opacity-100" // 4. Corrected transition logic
+                
+                fadeOut ? "opacity-50" : "opacity-100" 
             }`}
         >
-            {/* Centered Logo using Next.js Image component */}
-            <div className="mb-8"> {/* Adjusted layout for logo and spinner */}
+            
+            <div className="mb-8"> 
                 <Image
                     src={LOGO}
                     alt="Logo"
-                    width={200} // Specify intrinsic dimensions
-                    height={200} // Specify intrinsic dimensions
-                    priority // Prioritize loading for a better LCP
+                    width={200} 
+                    height={200}
+                    priority 
                     className="object-contain"
                 />
             </div>
