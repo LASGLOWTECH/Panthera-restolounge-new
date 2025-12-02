@@ -27,7 +27,8 @@
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #101010;
+    /* When dark mode is preferred, set background to dark */
+    --background: var(--dark); /* Use your defined dark variable */
     --foreground: #ededed;
   }
 }
@@ -40,7 +41,11 @@
 
 /* Apply Josefin Sans globally */
 body {
-  background: var(--background);
+  /* --- FIX IS HERE --- */
+  /* By default, set body background to DARK to cover the initial white flash. */
+  /* This ensures the screen is dark BEFORE any React component, including the SiteLoader, renders. */
+  background: var(--dark); 
+  
   color: var(--foreground);
   font-family: var(--font-primary), sans-serif;
 }
