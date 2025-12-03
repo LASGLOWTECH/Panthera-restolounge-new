@@ -16,7 +16,7 @@ const faqData = [
     q: "What are your operating hours?", a: `Panthera operates daily, 
 Monday to Wednesday: 10am to 10pm.
 Thursday to Sunday: 10am to 1am
-Offering both dining and lounge experiences.` },
+Offering both  fine dining and lounge experiences.` },
 
   { q: "Do you host private events or celebrations?", a: "Yes! We host birthdays, corporate dinners, bridal showers, engagements, VIP parties, and more." },
   { q: "Does Panthera serve original premium drinks?", a: "Yes — Panthera guarantees authentic, high-quality drinks only, sourced from trusted vendors." },
