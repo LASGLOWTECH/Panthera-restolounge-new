@@ -417,27 +417,28 @@ const App = () => {
         </motion.div>
 
         {/* RIGHT – SLIDESHOW */}
-        <div className="md:w-1/2 max-w-md">
-          <div className="rounded-2xl overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.45)]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentImage.id}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.35 }}
-                className="aspect-square"
-              >
-                <img
-                  src={currentImage.url}
-                  alt={currentImage.alt}
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
+       <div className="md:w-1/2 max-w-md">
+  <div className="rounded-2xl overflow-hidden shadow-[0_15px_45px_rgba(0,0,0,0.45)] relative">
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={currentImage.id}
+        variants={slideVariants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        transition={{ duration: 0.35 }}
+        className="aspect-square w-full h-full overflow-hidden"
+      >
+        <img
+          src={currentImage.url}
+          alt={currentImage.alt}
+          className="w-full h-full object-cover rounded-2xl"
+        />
+      </motion.div>
+    </AnimatePresence>
+  </div>
+</div>
+
       </main>
 
       {/* FOOTER CONTROLS */}

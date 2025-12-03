@@ -6,21 +6,20 @@ import Marquee from "react-fast-marquee";
 import { FaCircle, FaEye } from "react-icons/fa";
 import Link from "next/link";
 
-// Import your images from public/assets
+// Images
 import img1 from "@/public/assets/hero.jpg";
 import img2 from "@/public/assets/interior6.jpg";
 import img3 from "@/public/assets/hero5.jpg";
 import img4 from "@/public/assets/interior13.jpg";
 import img5 from "@/public/assets/hero1.jpg";
 
-// Add all images…
 const images = [img1, img2, img3, img5, img4];
 
 export default function WorksSlider() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div className="w-full py-20 bg-[url('/assets/dark1.jpg')] bg-center bg-blend-multiply bg-cover ">
+    <div className="w-full overflow-x-hidden py-20 bg-[url('/assets/dark1.jpg')] bg-center bg-blend-multiply bg-cover relative z-0">
       
       {/* Heading */}
       <section className="px-6 py-8">
@@ -38,11 +37,22 @@ export default function WorksSlider() {
       </section>
 
       {/* Slider */}
-      <Marquee pauseOnHover speed={30} gradient={false} className="py-4">
+      <Marquee 
+        pauseOnHover 
+        speed={30} 
+        gradient={false} 
+        className="py-4 overflow-hidden"
+      >
         {images.map((src, i) => (
           <div
             key={i}
-            className="mx-4 relative group cursor-pointer w-[350px] h-[350px] overflow-hidden rounded-xl"
+            className="
+              mx-4 relative group cursor-pointer 
+              w-[250px] h-[250px] 
+              sm:w-[300px] sm:h-[300px] 
+              md:w-[350px] md:h-[350px] 
+              overflow-hidden rounded-xl
+            "
             onClick={() => setSelected(src)}
           >
             <Image
@@ -64,14 +74,15 @@ export default function WorksSlider() {
       {/* Image Modal */}
       {selected && (
         <div
-          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-[9999] p-4"
           onClick={() => setSelected(null)}
         >
-          <div className="relative max-w-[600px] max-h-[600px]">
+          <div className="relative max-w-[600px] max-h-[600px] w-full h-full">
             <Image
               src={selected}
               alt="Selected image"
               className="object-contain rounded-lg"
+              fill
             />
           </div>
         </div>

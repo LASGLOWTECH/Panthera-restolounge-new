@@ -41,11 +41,13 @@
 
 /* Apply Josefin Sans globally */
 body {
-  /* --- FIX IS HERE --- */
-  /* By default, set body background to DARK to cover the initial white flash. */
-  /* This ensures the screen is dark BEFORE any React component, including the SiteLoader, renders. */
+
   background: var(--dark); 
-  
+
   color: var(--foreground);
   font-family: var(--font-primary), sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
 }
