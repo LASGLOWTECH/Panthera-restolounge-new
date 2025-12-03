@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { menuItems } from "@/utils/menuItems"; // full menu with images
 import { motion, AnimatePresence } from "framer-motion";
+import QuickFlipNaira from "@/components/NairaSign"
 
 
 export default function MenuPage() {
@@ -99,7 +100,11 @@ export default function MenuPage() {
                         className="flex justify-between border-b border-gold pb-1 text-gold"
                       >
                         <span>{item.name}</span>
-                        <span className="font-semibold">{item.price}</span>
+                       <span className="font-semibold flex items-center gap-1">
+  <QuickFlipNaira size={16} />
+  {item.price}
+</span>
+
                       </li>
                     ))}
                   </ul>

@@ -10,21 +10,22 @@ const services = [
     icon: FaUtensils,
     title: "SIGNATURE GOURMET CUISINE",
     description:
-      "Our culinary team brings together African and international flavors with a modern touch, delivering finely crafted dishes made to impress. Every meal is designed to celebrate Abuja’s vibrant taste culture with unmatched quality.",
-    iconColor: "text-[#ff5e00]",
+      `Our culinary team brings together
+African and international flavors with a modern touch, delivering finely crafted dishes made to impress. Each dish is prepared with care and reflects the rich food culture of the city.`,
+    iconColor: "text-[#ff5e00]"
   },
   {
     icon: FaWineGlass,
     title: "HANDCRAFTED COCKTAILS & PREMIUM DRINKS",
     description:
-      "Enjoy expertly mixed cocktails, premium wines, and a wide selection of spirits that perfectly complement our sophisticated atmosphere. Whether day or night, every sip delivers the refined experience Abuja guests appreciate.",
+      `Enjoy expertly mixed cocktails, premium wines, and a wide selection of spirits that perfectly complement our sophisticated atmosphere. Every drink is mixed to match the refined taste of our guests.`,
     iconColor: "text-[#ff5e00]",
   },
   {
     icon: FaMusic,
     title: "CURATED ENTERTAINMENT & AMBIENCE",
     description:
-      "Designed for Abuja’s lovers of style and comfort, our lounge offers a warm, upscale vibe. With the right blend of music, lighting, and mood, we create an environment ideal for socializing, relaxing, and celebrating.",
+      `Designed for lovers of style and comfort, our lounge offers a warm, upscale vibe. With the right blend of music, lighting, and mood, we create an environment ideal for socializing, relaxing, and celebrating.`,
     iconColor: "text-[#ff5e00]",
   },
 ];
@@ -32,7 +33,7 @@ const services = [
 const PantheraServices = () => {
   return (
     <section className="bg-black text-white py-12 sm:py-16">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-stretch">
           
           {/* Right Column: Services */}

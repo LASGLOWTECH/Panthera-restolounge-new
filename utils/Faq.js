@@ -8,11 +8,16 @@ import { FiPlus, FiMinus } from "react-icons/fi";
 import faqBanner from "@/public/assets/hero5.jpg"; // Your banner image
 
 const faqData = [
-  { q: "Where is Panthera RestoLounge located?", a: "Panthera is located in Maitama, Abuja, one of the city’s most exclusive and serene districts." },
+  { q: "Where is Panthera RestoLounge located?", a: "Panthera is located  at No. 1A Danube Street in Maitama, Abuja. one of the city's most exclusive and serene districts." },
   { q: "What type of cuisine does Panthera serve?", a: "We offer a premium fusion menu inspired by international flavours and contemporary African cuisine." },
   { q: "Do you offer outdoor and indoor seating?", a: "Yes. Panthera offers elegant indoor dining, a cosy outdoor lounge area, and VIP/private seating options." },
   { q: "Can I make a reservation?", a: "Yes. Reservations can be made via WhatsApp, phone call, Instagram DMs, or walk-ins." },
-  { q: "What are your operating hours?", a: "Panthera operates daily, offering both dining and lounge experiences." },
+  {
+    q: "What are your operating hours?", a: `Panthera operates daily, 
+Monday to Wednesday: 10am to 10pm.
+Thursday to Sunday: 10am to 1am
+Offering both dining and lounge experiences.` },
+
   { q: "Do you host private events or celebrations?", a: "Yes! We host birthdays, corporate dinners, bridal showers, engagements, VIP parties, and more." },
   { q: "Does Panthera serve original premium drinks?", a: "Yes — Panthera guarantees authentic, high-quality drinks only, sourced from trusted vendors." },
   { q: "Do you have a dress code?", a: "Yes. The dress code is smart, elegant, and classy." },
@@ -22,7 +27,7 @@ const faqData = [
   { q: "Is Panthera family-friendly?", a: "Dining area is family-friendly during the day; lounge area is adults-only, especially at night." },
   { q: "Do you offer VIP sections or bottle service?", a: "Yes. We have VIP seating, exclusive sections, and premium bottle service." },
   { q: "Are your staff trained in hospitality?", a: "All Panthera staff undergo continuous hospitality and customer-service training." },
-  { q: "How can I stay updated on upcoming events?", a: "Follow us on Instagram and our social platforms for all event updates." },
+  { q: "How can I stay updated on upcoming events?", a: "Follow our social media page or visit the Events section on this website for updates on weekly and special events." },
 ];
 
 const AccordionItem = ({ question, answer, isOpen, toggleItem }) => (
@@ -65,7 +70,7 @@ export const FAQSection = () => {
   return (
     <section className="py-24 px-6 md:px-16 bg-black text-light-text">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
-        
+
         {/* LEFT SIDE */}
         <div className="lg:col-span-6 flex flex-col justify-center">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>

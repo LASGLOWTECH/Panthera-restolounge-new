@@ -9,7 +9,7 @@ import img01 from "@/public/assets/food2.jpg";
 import img02  from "@/public/assets/food3.jpeg";
 import img03 from "@/public/assets/food4.jpeg";
 import img04 from "@/public/assets/food5.jpeg";
-import img05  from "@/public/assets/food6.jpeg";
+
 import img06 from "@/public/assets/food7.jpeg";
 import img07 from "@/public/assets/food8.jpeg";
 import img08 from "@/public/assets/food9.jpeg";
@@ -24,19 +24,19 @@ import img15 from "@/public/assets/food16.jpeg";
 import img017 from "@/public/assets/food17.jpeg";
 import img018 from "@/public/assets/food18.jpeg";
 import img019 from "@/public/assets/food19.jpeg";
-import img020 from "@/public/assets/food20.jpeg";
+
 import img021 from "@/public/assets/food21.jpeg";
 import img2 from "@/public/assets/hero.jpg";
-import img3 from "@/public/assets/hero1.jpg";
+
 import img4 from "@/public/assets/interior14.jpg";
 import img5 from "@/public/assets/interior1.jpg";
 import img6 from "@/public/assets/interior2.jpg";
 import img7 from "@/public/assets/interior3.jpg";
-import img8 from "@/public/assets/interior4.jpg";
+
 import img9 from "@/public/assets/interior5.jpg";
 import img10 from "@/public/assets/interior6.jpg";
 import img11 from "@/public/assets/interior7.jpg";
-import img12 from "@/public/assets/interior8.jpg";
+
 // Add more images as needed
 
 const galleryImages = [
@@ -47,7 +47,7 @@ const galleryImages = [
  img02,
  img03,
  img04,
- img05,
+
  img06,
  img07,
  img08,
@@ -60,8 +60,8 @@ img014,
  img15,
 img017,
 img018,
-img019,img020,
-img021,img1, img2, img3, img4, img5, img6,img7,img8, img9, img10,img11,img12];
+img019,
+img021,img1, img2, img4, img5, img6,img7, img9, img10,img11];
 
 export default function GalleryPage() {
   return (

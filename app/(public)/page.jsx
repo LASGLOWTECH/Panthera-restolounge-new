@@ -96,7 +96,7 @@ We offer a variety of world-class cuisines, signature patisserie, the finest win
               </motion.p>
 
               <motion.p className="text-lg font-light leading-relaxed" variants={fadeIn}>
-                Our elegant ambiance reflects the beauty and mystery of the tropics, creating a setting that exudes class and opulence  a true gastronomic haven.
+                Our elegant ambiance reflects the beauty and mystery of the tropics, creating a setting that exudes class and opulence. A true gastronomic haven.
               </motion.p>
             </motion.div>
 
